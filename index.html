@@ -32,6 +32,21 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+     $(document).ready(function(){
+        $(".portfolio-item").click(function(){
+           var elementId = $(this).attr("data-id");
+           $(".popup-modal").addClass("mfp-hide");
+           $("#"+elementId).removeClass("mfp-hide");
+           $(".modal-overlay").addClass("active");
+        });
+        $(".popup-modal-dismiss, .modal-overlay").click(function(){
+           $(".popup-modal").addClass("mfp-hide");
+           $(".modal-overlay").removeClass("active");
+        });
+     });
+  </script>
    
    <!-- Bootstrap JS -->
    <!-- Latest compiled and minified JavaScript -->
@@ -204,7 +219,7 @@
             <!-- portfolio-wrapper -->
             <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
 
-          	   <div class="columns portfolio-item">
+          	   <div class="columns portfolio-item coffee" data-id="modal-01">
                   <div class="item-wrap">
 
                      <a href="#modal-01" title="">
@@ -216,12 +231,13 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
           		</div> <!-- item end -->
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" data-id="modal-02">
                   <div class="item-wrap">
 
                      <a href="#modal-02" title="">
@@ -233,12 +249,13 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
           		</div> <!-- item end -->
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" data-id="modal-03">
                   <div class="item-wrap">
 
                      <a href="#modal-03" title="">
@@ -250,12 +267,13 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
           		</div> <!-- item end -->
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" data-id="modal-04">
                   <div class="item-wrap">
 
                      <a href="#modal-04" title="">
@@ -267,12 +285,13 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
           		</div> <!-- item end -->
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" data-id="modal-05">
                   <div class="item-wrap">
 
                      <a href="#modal-05" title="">
@@ -284,12 +303,13 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
           		</div> <!-- item end -->
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" data-id="modal-06">
                   <div class="item-wrap">
 
                      <a href="#modal-06" title="">
@@ -301,12 +321,13 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
           		</div> <!-- item end -->
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" data-id="modal-07">
                   <div class="item-wrap">
 
                      <a href="#modal-07" title="">
@@ -318,12 +339,13 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
           		</div> <!-- item end -->
 
-               <div class="columns portfolio-item">
+               <div class="columns portfolio-item" data-id="modal-08">
                   <div class="item-wrap">
 
                      <a href="#modal-08" title="">
@@ -335,6 +357,7 @@
           					   </div>
                         </div>
                         <div class="link-icon"><i class="icon-plus"></i></div>
+                        <p class="description" style="display: none;">Lorem ipsum dolor sit amet...</p>
                      </a>
 
                   </div>
@@ -347,7 +370,7 @@
 
          <!-- Modal Popup
 	      --------------------------------------------------------------- -->
-
+         <div class="modal-overlay"></div>
          <div id="modal-01" class="popup-modal mfp-hide">
 
 		      <img class="scale-with-grid" src="images/portfolio/modals/m-coffee.jpg" alt="" />

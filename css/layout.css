@@ -500,6 +500,11 @@ ul#nav li.current a { color: #F06000; }
 	position: relative;
 	margin: 0 auto;
 }
+.popup-modal img{
+   position: absolute;
+   top: 0;
+   left: 0;
+}
 .popup-modal .description-box { padding: 12px 36px 18px 36px; }
 .popup-modal .description-box h4 {
    font: 15px/24px 'opensans-bold', sans-serif;
@@ -907,5 +912,20 @@ footer .social-links li:first-child { margin-left: 0; }
 
 .smooth-scroll:hover, .smooth-scroll:focus {
    background-color: transparent !important;
+}
+
+.modal-overlay{
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background-color: rgba(0,0,0,0.8);
+   opacity: 0;
+   visibility: hidden;
+}
+.modal-overlay.active{
+   opacity: 1;
+   visibility: visible;
 }
 
