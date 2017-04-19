@@ -93,6 +93,7 @@
                <li><a class="smoothscroll" href="#portfolio">Works</a></li>
                <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
                <li><a class="smoothscroll" href="#contact">Contact</a></li>
+               <li><a class="smoothscroll" href="#GoogleMap">Map</a></li>
             </ul> <!-- end #nav -->
          </div>
 
@@ -640,7 +641,10 @@
       </div>
 
    </section> <!-- Contact Section End-->
-
+   
+   <section id="GoogleMap">
+      <div id="map"></div>
+   </section>
 
    <!-- footer
    ================================================== -->
@@ -683,6 +687,24 @@
    <script src="js/jquery.fittext.js"></script>
    <script src="js/magnific-popup.js"></script>
    <script src="js/init.js"></script>
+   
+   <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+   
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmRLBMxMjTP2O7hVYawF-cUVq3BAjFiZ0&callback=initMap">
+    </script>
 
 </body>
 
