@@ -74,13 +74,13 @@
         var email =  $("#contactEmail").val
         var message = $("#contactMessage").val
         if (nombre == "") {
-          $("#errorName").fadeIn();
+          $("#contactName").focus().after("<span class='error'>Ingrese su nombre</span>");
           return false;
         }else{
           $("#errorName").fadeOut();
         }
         if (email == "" || !expr.test(email)){
-          $("#errorEmail").fadeIn();
+          $("#contactEmail").focus().after("<span class='error'>Ingrese correo valido</span>");
           return false;
         }else{
           $("#errorEmail").fadeOut();
@@ -625,7 +625,7 @@
                   <div>
 						   <label for="contactName">Name <span class="required">*</span></label>
 						   <input type="text" value="" size="35" id="contactName" name="contactName">
-                <div id="errorName" class="error"> Este campo es requerido</div>
+                <div id="errorName" class="error"></div>
 						   
                <label for="contactEmail">Email <span class="required">*</span></label>
 						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
