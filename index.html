@@ -61,6 +61,10 @@
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.png" >
 
+  <!-- googleMaps librarys -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjOgGm0890fOVhAP-1xKaFjx3Kds1C9So&callback=initMap">
+</script>
 </head>
 
 <body>
@@ -637,7 +641,30 @@
       </div>
 
    </section> <!-- Contact Section End-->
+   
+   <!--Geo section -->
+   <section id= "ubicacion">
+      <div class="row">
+        <h1>Esta es la map section</h1>
+        <div id="map"></div>
+      </div>
+      <script>
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'),{
+            zoom: 15,
+            center: {lat: 10.985, lng: -74.8010},
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
 
+          var place = new google.maps.LatLng(10.985, -74.8010);
+          var marker = new google.maps.Marker({
+            position: place,
+            title: "Aqui estamos",
+            map: map
+          });
+        }
+      </script>
+   </section>
 
    <!-- footer
    ================================================== -->
