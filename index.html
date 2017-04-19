@@ -22,6 +22,7 @@
 	
 	<!-- CSS
     ================================================== -->
+   <link rel="stylesheet" href="css/flexslider.css" type="text/css">
    <link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
@@ -45,6 +46,7 @@
            $(".popup-modal").addClass("mfp-hide");
            $(".modal-overlay").removeClass("active");
         });
+        $('.flexslider').flexslider();
      });
   </script>
    
@@ -56,6 +58,7 @@
    <!-- Script
    ================================================== -->
 	<script src="js/modernizr.js"></script>
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
 
    <!-- Favicons
 	================================================== -->
@@ -531,7 +534,7 @@
 
             <div class="ten columns flex-container">
 
-               <div class="flexslider">
+               <div class="flexslider" style="background-color: transparent; border-color: transparent">
 
                   <ul class="slides">
 

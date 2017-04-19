@@ -929,3 +929,7 @@ footer .social-links li:first-child { margin-left: 0; }
    visibility: visible;
 }
 
+.flex-control-nav li a{
+   background-color: #FFF;
+}
+
