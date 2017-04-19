@@ -22,6 +22,7 @@
 	
 	<!-- CSS
     ================================================== -->
+   <link rel="stylesheet" href="css/flexslider.css" type="text/css">
    <link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
@@ -45,6 +46,7 @@
            $(".popup-modal").addClass("mfp-hide");
            $(".modal-overlay").removeClass("active");
         });
+        $('.flexslider').flexslider();
      });
   </script>
    
@@ -56,11 +58,37 @@
    <!-- Script
    ================================================== -->
 	<script src="js/modernizr.js"></script>
+	<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
 
    <!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.png" >
 
+  <!-- scripts de validations
+  ==================================================-->
+  <script >
+    var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+    $(document).ready(function () {
+      $("#enviar").click(function () {
+        var nombre = $("#contactName").val
+        var email =  $("#contactEmail").val
+        var message = $("#contactMessage").val
+        if (nombre == "") {
+          $("#contactName").focus().after("<span class='error'>Ingrese su nombre</span>");
+          return false;
+        }else{
+          $("#errorName").fadeOut();
+        }
+        if (email == "" || !expr.test(email)){
+          $("#contactEmail").focus().after("<span class='error'>Ingrese correo valido</span>");
+          return false;
+        }else{
+          $("#errorEmail").fadeOut();
+          return false;
+        }
+      })
+    });
+  </script>
 </head>
 
 <body>
@@ -90,6 +118,7 @@
                <li><a class="smoothscroll" href="#portfolio">Works</a></li>
                <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
                <li><a class="smoothscroll" href="#contact">Contact</a></li>
+               <li><a class="smoothscroll" href="#GoogleMap">Map</a></li>
             </ul> <!-- end #nav -->
          </div>
 
@@ -531,7 +560,7 @@
 
             <div class="ten columns flex-container">
 
-               <div class="flexslider">
+               <div class="flexslider" style="background-color: transparent; border-color: transparent">
 
                   <ul class="slides">
 
@@ -596,15 +625,13 @@
                   <div>
 						   <label for="contactName">Name <span class="required">*</span></label>
 						   <input type="text" value="" size="35" id="contactName" name="contactName">
-                  </div>
-
-                  <div>
-						   <label for="contactEmail">Email <span class="required">*</span></label>
+                <div id="errorName" class="error"></div>
+						   
+               <label for="contactEmail">Email <span class="required">*</span></label>
 						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
-                  </div>
-
-                  <div>
-						   <label for="contactSubject">Subject</label>
+                <div id="errorEmail"> Esta mal escrito el email</div>
+						   
+               <label for="contactSubject">Subject</label>
 						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
                   </div>
 
@@ -614,7 +641,7 @@
                   </div>
 
                   <div>
-                     <button class="submit">Submit</button>
+                     <button class="submit" id="enviar">Submit</button>
                      <span id="image-loader">
                         <img alt="" src="images/loader.gif">
                      </span>
@@ -637,7 +664,10 @@
       </div>
 
    </section> <!-- Contact Section End-->
-
+   
+   <section id="GoogleMap">
+      <div id="map"></div>
+   </section>
 
    <!-- footer
    ================================================== -->
@@ -680,6 +710,24 @@
    <script src="js/jquery.fittext.js"></script>
    <script src="js/magnific-popup.js"></script>
    <script src="js/init.js"></script>
+   
+   <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+   
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmRLBMxMjTP2O7hVYawF-cUVq3BAjFiZ0&callback=initMap">
+    </script>
 
 </body>
 
