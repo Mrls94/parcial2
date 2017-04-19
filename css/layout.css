@@ -120,6 +120,7 @@ header .scrolldown a:hover { color: #11ABB0; }
    /*position: absolute;*/
    left: 0;
    top: 0;
+   background-color: #000;
 }
 .opaque { background-color: #333; }
 
