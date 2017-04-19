@@ -70,21 +70,32 @@
     var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
     $(document).ready(function () {
       $("#enviar").click(function () {
-        var nombre = $("#contactName").val
-        var email =  $("#contactEmail").val
-        var message = $("#contactMessage").val
+         $("#errorName").css("visibility", "hidden");
+         $("#errorEmail").css("visibility", "hidden");
+         $("#errorMessage").css("visibility", "hidden");
+        var nombre = $("#contactName").val();
+        var email =  $("#contactEmail").val();
+        var message = $("#contactMessage").val();
+        console.log("message: -"+message);
         if (nombre == "") {
-          $("#contactName").focus().after("<span class='error'>Ingrese su nombre</span>");
+            $("#contactName").focus();//.after("<span class='error'>Ingrese su nombre</span>");
+            $("#errorName").css("visibility", "visible");
           return false;
         }else{
           $("#errorName").fadeOut();
         }
         if (email == "" || !expr.test(email)){
-          $("#contactEmail").focus().after("<span class='error'>Ingrese correo valido</span>");
+          $("#contactEmail").focus(); //.after("<span class='error'>Ingrese correo valido</span>");
+          $("#errorEmail").css("visibility", "visible");
           return false;
         }else{
           $("#errorEmail").fadeOut();
-          return false;
+        }
+        console.log(message == "");
+        if(message == ""){
+           $("#contactMessage").focus();
+           $("#errorMessage").css("visibility", "visible");
+           return false;
         }
       })
     });
@@ -625,11 +636,11 @@
                   <div>
 						   <label for="contactName">Name <span class="required">*</span></label>
 						   <input type="text" value="" size="35" id="contactName" name="contactName">
-                <div id="errorName" class="error"></div>
+                <div id="errorName" class="error" style="visibility: hidden"><span class='error'>Ingrese su nombre</span></div>
 						   
                <label for="contactEmail">Email <span class="required">*</span></label>
 						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
-                <div id="errorEmail"> Esta mal escrito el email</div>
+                <div id="errorEmail" style="visibility: hidden"> Esta mal escrito el email</div>
 						   
                <label for="contactSubject">Subject</label>
 						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
@@ -638,6 +649,7 @@
                   <div>
                      <label for="contactMessage">Message <span class="required">*</span></label>
                      <textarea cols="50" rows="15" id="contactMessage" name="contactMessage"></textarea>
+                     <div id="errorMessage" style="visibility: hidden"> Por favor escriba un mensaje</div>
                   </div>
 
                   <div>
