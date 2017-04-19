@@ -117,7 +117,7 @@ header .scrolldown a:hover { color: #11ABB0; }
    letter-spacing: 2.5px;
    margin: 0 auto;
    z-index: 100;
-   position: absolute;
+   /*position: absolute;*/
    left: 0;
    top: 0;
 }
@@ -899,4 +899,12 @@ footer .social-links li:first-child { margin-left: 0; }
  	border-radius: 100%;
 }
 #go-top a:hover { background-color: #0F9095; }
+
+.icon-bar {
+   background-color: #ffa500;
+}
+
+.smooth-scroll:hover, .smooth-scroll:focus {
+   background-color: transparent !important;
+}
 
